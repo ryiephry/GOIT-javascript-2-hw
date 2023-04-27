@@ -1,26 +1,24 @@
 import { galleryItems } from './gallery-items.js';
 // Change code below this line
 
-console.log(galleryItems);
+const imageListEL = document.querySelector(".gallery");
 
-const galleryImageEL = document.getElementsByClassName("gallery__item");
+const galleryMarkup = imageMarkup(galleryItems);
 
-console.log(galleryImageEL);
+imageListEL.insertAdjacentHTML("beforeend", galleryMarkup)
 
-let newimgEL = " ";
-
-for (let i = 0; i < galleryItems.length; i++){
-    console.log(galleryItems[i]);
-
-    let previewImageEL = galleryItems[i];
-    
-    newimgEL = document.createElement("img");
-    
-    newimgEL.innerHTML += `class="gallery__image" src = "https://cdn.pixabay.com/photo/2019/05/14/16/43/rchids-4202820__480.jpg" data-source=${galleryItems[i]} alt="Image description" />`;
-   galleryImageEL.append(newimgEL);
-};
-
-
-
+function imageMarkup(Items) {
+    return Items
+        .map((item) =>
+            
+            ` <li class="gallery__item">
+           <a class="gallery__link" href="${item.original}">
+           <img class="gallery__image" src="${item.preview}"
+              data-source="large-image.jpg" alt="${item.description}" />
+           </a>
+          </li>`
+    )
+        .join("");
+}
 
 
