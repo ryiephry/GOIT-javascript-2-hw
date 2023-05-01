@@ -42,3 +42,9 @@
 .gallery__link:hover {
   cursor: zoom-in;
 }
+
+/* 
+.above {
+  z-index: 5;
+  position: absolute;
+} */
